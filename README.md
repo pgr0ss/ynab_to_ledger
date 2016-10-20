@@ -9,15 +9,15 @@ First, export your data from YNAB:
 * Go to My Budget -> Export budget data
 * Download and unzip the archive
 
-Next, run `ynab_to_ledger.rb` to convert the export to a ledger file:
+Next, run `ynab_to_ledger.rb` to convert the export to a Ledger file:
 
 `ruby ynab_to_ledger.rb My\ Budget\ as\ of\ 2016-10-02\ 1007\ PM\ -\ Register.csv`
 
-This will write out a ynab_ledger.dat journal.
+This will write out a `ynab_ledger.dat` journal.
 
 ## Reporting
 
-Now that you've got a ledger journal, you can use the ledger command line to run reports. For example:
+Now that you've got a Ledger journal, you can use the Ledger command line to run reports. For example:
 
 View a monthly register:
 
@@ -39,6 +39,6 @@ You can see more reports at http://ledger-cli.org/3.0/doc/ledger3.html#Building-
 
 ## hledger
 
-[hledger](http://hledger.org/) (a port of ledger) provides some reporting that ledger does not. For example, you can view a monthly register rolled up by category:
+[hledger](http://hledger.org/) (a port of ledger) provides some reporting that Ledger does not. For example, you can view a monthly register rolled up by category:
 
 `hledger register -f ynab_ledger.dat --monthly --depth 1`
