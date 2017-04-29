@@ -25,6 +25,8 @@ def ledger_entry(row)
     source = row["Category Group/Category"]
   end
 
+  return if source == ""
+
   <<END
 #{year}/#{month}/#{day} #{row["Payee"]}#{row["Memo"]}
     #{source}             #{outflow}
