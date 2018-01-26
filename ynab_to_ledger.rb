@@ -35,7 +35,7 @@ END
 end
 
 def blank_if_zero(amount)
-  amount == "$0.00" ? "" : amount
+  amount =~ /\A\$?0.00\z/ ? "" : amount
 end
 
 main if __FILE__ == $0
