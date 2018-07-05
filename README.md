@@ -42,3 +42,7 @@ You can see more reports at http://ledger-cli.org/3.0/doc/ledger3.html#Building-
 [hledger](http://hledger.org/) (a port of Ledger) provides some reporting that Ledger does not. For example, you can view a monthly register rolled up by category:
 
 `hledger register -f ynab_ledger.dat --monthly --depth 1`
+
+Multicolumn balance report by month with averaging:
+
+`hledger balance -f ynab_ledger.dat --average --monthly --begin 2017/1/1 --end 2017/12/31`
