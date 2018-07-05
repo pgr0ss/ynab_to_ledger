@@ -45,4 +45,4 @@ You can see more reports at http://ledger-cli.org/3.0/doc/ledger3.html#Building-
 
 Multicolumn balance report by month with averaging:
 
-`hledger balance -f ynab_ledger.dat --average --monthly --begin 2017/1/1 --end 2017/12/31`
+`hledger balance -f ynab_ledger.dat --average --monthly --begin 2017-01-01 --end 2017-12-31`
