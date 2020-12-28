@@ -4,7 +4,12 @@ Convert a YNAB ([You Need a Budget](https://www.youneedabudget.com)) export to a
 
 ## Usage
 
-First, export your data from YNAB:
+First, make sure your budget settings in YNAB match these options, so that the exported CSV will be in the expected format. Open YNAB, click the top left corner, and choose "Budget Settings":
+
+- Make sure the setting Number Format is set to "123.45" or similar (the decimal point should be `.`, not `,`).
+- Make sure the date format is set to the American format "mm/dd/yyyy", for example, "12/30/2015".
+
+Now, export your data from YNAB:
 
 * Go to My Budget -> Export budget data
 * Download and unzip the archive
