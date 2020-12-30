@@ -16,26 +16,12 @@ def process(csv)
 end
 
 def ledger_entry(row)
-  [row["Inflow"], row["Outflow"]].each do |amount|
-    begin
-      Float(amount)
-    rescue
-      STDERR.puts "Invalid inflow or outflow: #{amount}, expected to be in format 0.00"
-    end
-  end
-
   inflow = blank_if_zero(row["Inflow"])
   outflow = blank_if_zero(row["Outflow"])
 
   return if inflow == "" && outflow == ""
 
   month, day, year = row["Date"].split("/")
-
-  begin
-    Date.new(Integer(year, 10), Integer(month, 10), Integer(day, 10))
-  rescue
-    STDERR.puts "Invalid date: #{row["Date"]}, expected mm/dd/yyyy"
-  end
 
   if row["Payee"].include?("Transfer :")
     return if outflow == ""
