@@ -1,13 +1,18 @@
 require "csv"
 
 def main
-  entries = CSV.read(ARGV.first, headers: true, encoding: "BOM|UTF-8").map do |row|
+  csv = File.read(ARGV.first, encoding: "bom|utf-8")
+  output = process(csv)
+
+  File.open("ynab_ledger.dat", "w") { |f| f.write(output) }
+end
+
+def process(csv)
+  entries = CSV.parse(csv, headers: true).map do |row|
     ledger_entry(row)
   end
 
-  File.open("ynab_ledger.dat", "w") do |f|
-    f.puts entries.compact.reverse.join("\n")
-  end
+  entries.compact.reverse.join("\n")
 end
 
 def ledger_entry(row)
@@ -43,8 +48,8 @@ def ledger_entry(row)
 
   <<END
 #{year}/#{month}/#{day} #{row["Payee"]}#{row["Memo"]}
-    #{source}             #{outflow}
-    #{row["Account"]}     #{inflow}
+    #{source}  #{outflow}
+    #{row["Account"]}  #{inflow}
 END
 end
 
