@@ -32,6 +32,22 @@ CSV
 EXPECTED
   end
 
+  it "processes transfers" do
+    csv = <<CSV
+"Account","Flag","Date","Payee","Category Group/Category","Category Group","Category","Memo","Outflow","Inflow","Cleared"
+"Checking","","12/18/2020","Transfer : American Express","","","","",$194.17,$0.00,"Cleared"
+"American Express","","12/18/2020","Transfer : Checking","","","","",$0.00,$194.17,"Cleared"
+CSV
+
+    output = process(csv)
+
+    assert_equal(<<EXPECTED, output)
+2020/12/18 Transfer : American Express
+    American Express  $194.17
+    Checking  
+EXPECTED
+  end
+
   it "blanks out zero amounts" do
     assert_equal("$1.45", blank_if_zero("$1.45"))
     assert_equal("", blank_if_zero("$0.00"))
