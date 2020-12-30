@@ -1,4 +1,4 @@
-# ynab_to_ledger
+# ynab_to_ledger ![Ruby](https://github.com/pgr0ss/ynab_to_ledger/workflows/Ruby/badge.svg)
 
 Convert a YNAB ([You Need a Budget](https://www.youneedabudget.com)) export to a [Ledger](http://ledger-cli.org) journal.
 
