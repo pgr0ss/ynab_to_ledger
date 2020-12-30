@@ -1,6 +1,11 @@
 desc "Run the tests"
 task :test do
-  sh "ruby *_test.rb"
+  sh "bundle exec ruby *_test.rb"
 end
 
-task :default => :test
+desc "Check formatting"
+task :check_formatting do
+  sh "bundle exec rufo -c ."
+end
+
+task :default => [:test, :check_formatting]
