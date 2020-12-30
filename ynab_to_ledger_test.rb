@@ -31,4 +31,10 @@ CSV
     Credit Card  
 EXPECTED
   end
+
+  it "blanks out zero amounts" do
+    assert_equal("$1.45", blank_if_zero("$1.45"))
+    assert_equal("", blank_if_zero("$0.00"))
+    assert_equal("", blank_if_zero("0.000"))
+  end
 end
