@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 def main
   entries = CSV.read(ARGV.first, headers: true, encoding: "BOM|UTF-8").map do |row|
@@ -25,13 +25,13 @@ def ledger_entry(row)
   return if inflow == "" && outflow == ""
 
   month, day, year = row["Date"].split("/")
-  
+
   begin
     Date.new(Integer(year, 10), Integer(month, 10), Integer(day, 10))
   rescue
     STDERR.puts "Invalid date: #{row["Date"]}, expected mm/dd/yyyy"
   end
-  
+
   if row["Payee"].include?("Transfer :")
     return if outflow == ""
     source = row["Payee"].split(":").last.strip
