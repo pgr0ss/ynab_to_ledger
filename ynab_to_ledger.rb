@@ -40,7 +40,7 @@ END
 end
 
 def blank_if_zero(amount)
-  amount =~ /\A\$?0(\.0+)?\z/ ? "" : amount
+  amount =~ /\A(\$|€)?0(\.0+)?\z/ ? "" : amount
 end
 
 main if __FILE__ == $0
